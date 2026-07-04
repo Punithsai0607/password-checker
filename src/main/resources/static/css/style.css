@@ -1,0 +1,569 @@
+/* ============================================================
+   Password Strength & Policy Validator — Custom Stylesheet
+   Modern glassmorphism design with animated gradients
+   ============================================================ */
+
+/* ==================== ROOT VARIABLES ==================== */
+:root {
+    --bg-primary: #0f0c29;
+    --bg-secondary: #302b63;
+    --bg-tertiary: #24243e;
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: rgba(0, 0, 0, 0.3);
+    --accent-primary: #6c63ff;
+    --accent-secondary: #00d2ff;
+    --accent-gradient: linear-gradient(135deg, #6c63ff 0%, #00d2ff 100%);
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.45);
+    --success: #00e676;
+    --danger: #ff5252;
+    --warning: #ffab40;
+    --info: #40c4ff;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==================== BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ==================== ANIMATED BACKGROUND ==================== */
+.bg-gradient-animated {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(-45deg,
+        #0f0c29, #302b63, #24243e, #1a1a2e,
+        #16213e, #0f3460, #1b1b3a, #2d1b69);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==================== HEADER ==================== */
+.header-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    font-size: 2rem;
+    color: white;
+    box-shadow: 0 8px 32px rgba(108, 99, 255, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 8px 32px rgba(108, 99, 255, 0.4); }
+    50% { box-shadow: 0 8px 48px rgba(108, 99, 255, 0.7); }
+}
+
+/* ==================== GLASSMORPHISM CARD ==================== */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.card-header-custom {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.card-header-custom i {
+    color: var(--accent-secondary);
+    font-size: 1.3rem;
+}
+
+/* ==================== FORM INPUTS ==================== */
+.glass-input {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-primary) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.glass-input:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.25) !important;
+    outline: none;
+}
+
+.glass-input::placeholder {
+    color: var(--text-muted) !important;
+}
+
+.glass-input-addon {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: var(--text-secondary) !important;
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==================== BUTTONS ==================== */
+.btn-primary-custom {
+    background: var(--accent-gradient);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary-custom::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.5);
+    color: white;
+}
+
+.btn-primary-custom:hover::before {
+    left: 100%;
+}
+
+.btn-primary-custom:active {
+    transform: translateY(0);
+}
+
+.btn-outline-light {
+    border-color: var(--glass-border);
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ==================== SCORE CIRCLE ==================== */
+.score-circle {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--accent-primary) calc(var(--score-pct, 0) * 1%),
+        rgba(255, 255, 255, 0.08) 0%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: scoreReveal 1s ease-out;
+}
+
+.score-circle-inner {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.score-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.score-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+@keyframes scoreReveal {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-90deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* ==================== STRENGTH BADGE ==================== */
+.strength-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: badgePop 0.5s ease-out;
+}
+
+.strength-danger {
+    background: rgba(255, 82, 82, 0.15);
+    color: var(--danger);
+    border: 1px solid rgba(255, 82, 82, 0.3);
+}
+
+.strength-warning {
+    background: rgba(255, 171, 64, 0.15);
+    color: var(--warning);
+    border: 1px solid rgba(255, 171, 64, 0.3);
+}
+
+.strength-info {
+    background: rgba(64, 196, 255, 0.15);
+    color: var(--info);
+    border: 1px solid rgba(64, 196, 255, 0.3);
+}
+
+.strength-success {
+    background: rgba(0, 230, 118, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(0, 230, 118, 0.3);
+}
+
+@keyframes badgePop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ==================== PROGRESS BAR ==================== */
+.progress-custom {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-custom {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 1s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar-custom::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-danger { background: var(--danger); }
+.progress-warning { background: var(--warning); }
+.progress-info { background: var(--info); }
+.progress-success { background: var(--success); }
+
+/* ==================== STATS ==================== */
+.stat-box {
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.stat-box:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ==================== VALIDATION RULES LIST ==================== */
+.validation-rule-item {
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.validation-rule-item:hover {
+    transform: translateX(4px);
+}
+
+.rule-passed {
+    background: rgba(0, 230, 118, 0.06);
+    border-color: rgba(0, 230, 118, 0.15);
+}
+
+.rule-failed {
+    background: rgba(255, 82, 82, 0.06);
+    border-color: rgba(255, 82, 82, 0.15);
+}
+
+.rule-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.rule-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.rule-message {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.rule-badge .badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 0.35rem 0.6rem;
+    border-radius: 4px;
+}
+
+/* ==================== SUGGESTIONS ==================== */
+.suggestion-item {
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 171, 64, 0.06);
+    border: 1px solid rgba(255, 171, 64, 0.12);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    transition: var(--transition);
+    line-height: 1.5;
+}
+
+.suggestion-item:hover {
+    background: rgba(255, 171, 64, 0.1);
+    transform: translateX(4px);
+    color: var(--text-primary);
+}
+
+/* ==================== OVERALL STATUS ==================== */
+.overall-status {
+    padding: 1rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.status-valid {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--success);
+    border: 1px solid rgba(0, 230, 118, 0.25);
+}
+
+.status-invalid {
+    background: rgba(255, 82, 82, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(255, 82, 82, 0.25);
+}
+
+/* ==================== ANIMATIONS ==================== */
+.fade-in {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.fade-in-delay-1 {
+    animation: fadeInUp 0.6s ease-out 0.15s both;
+}
+
+.fade-in-delay-2 {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.fade-in-delay-3 {
+    animation: fadeInUp 0.6s ease-out 0.45s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== ALERT OVERRIDES ==================== */
+.alert.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.alert.border-danger {
+    border-color: rgba(255, 82, 82, 0.4) !important;
+}
+
+/* ==================== SCROLLBAR ==================== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .header-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    h1.display-5 {
+        font-size: 1.6rem;
+    }
+
+    .score-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .score-circle-inner {
+        width: 105px;
+        height: 105px;
+    }
+
+    .score-value {
+        font-size: 2rem;
+    }
+
+    .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .glass-card {
+        padding: 1.25rem !important;
+    }
+
+    .strength-badge {
+        font-size: 0.85rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .d-flex.gap-3 {
+        flex-direction: column;
+    }
+
+    .validation-rule-item .d-flex {
+        flex-wrap: wrap;
+    }
+
+    .rule-badge {
+        margin-top: 0.5rem;
+        width: 100%;
+        text-align: left;
+        padding-left: 2.5rem;
+    }
+}
